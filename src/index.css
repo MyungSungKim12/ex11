@@ -1,8 +1,6 @@
-@font-face {
-  font-family: "Single";
-  src: url("SingleDay-Regular.ttf")
-}
+
 
 body{
-  font-family: "Single";
+  padding: 0px;
+  margin: 0px;
 }
