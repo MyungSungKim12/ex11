@@ -2,12 +2,12 @@ import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import back from '../images/back.jpg';
 
-const Header = ({history}) => {
+const Header = ({ history }) => {
   let email = sessionStorage.getItem('email');
-  const onLogout = (e) =>{
+  const onLogout = (e) => {
     e.preventDefault();
     sessionStorage.removeItem('email');
     history.push('/');
@@ -16,27 +16,19 @@ const Header = ({history}) => {
     <>
       <br />
       <img src={back} style={{ width: '100%' }} />
-      <Navbar bg="primary" variant="dark">
-        
-          <Navbar.Brand href="/">𖠌</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="/">홈</Nav.Link>
-            <Nav.Link href="#features">회원목록</Nav.Link>
-            {email ?
-              <Nav.Link href="#" onClick={onLogout}>로그아웃</Nav.Link>
-              :
-              <Nav.Link href="/login">로그인</Nav.Link>
-            }
-            {email &&
-              <Nav.Link href="/login">{email}</Nav.Link>
-            }
-
-          </Nav>
-        
+      <Navbar bg="primary" variant="dark" className='header'>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/users">UserList</NavLink>
+        {email ?
+          <NavLink to="#" onClick={onLogout}>Logout</NavLink>
+          :
+          <NavLink to="/login">Login</NavLink>
+        }
+        {email && <span style={{ color: 'white' }}>{email}</span>}
       </Navbar>
       <br />
     </>
   )
 }
 
-export default withRouter (Header)
+export default withRouter(Header)
