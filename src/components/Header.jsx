@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { withRouter } from 'react-router-dom';
+import back from '../images/back.jpg';
 
 const Header = ({history}) => {
   let email = sessionStorage.getItem('email');
@@ -14,9 +15,9 @@ const Header = ({history}) => {
   return (
     <>
       <br />
-      <img src="http://placeimg.com/960/150/any" style={{ width: '100%' }} />
+      <img src={back} style={{ width: '100%' }} />
       <Navbar bg="primary" variant="dark">
-        <Container>
+        
           <Navbar.Brand href="/">𖠌</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/">홈</Nav.Link>
@@ -31,7 +32,7 @@ const Header = ({history}) => {
             }
 
           </Nav>
-        </Container>
+        
       </Navbar>
       <br />
     </>
